@@ -2,18 +2,24 @@
 
 def bubble_sort(array)
 
-## Create mehtod for each consecutive pair that reverses index is left > right
-    sorted_array = []
+    ## Set the total length of the array to limit iterations
+    n = array.length
 
-    array.each_cons (2) do | x, y | 
-        pair = [x, y]
-        if x > y
-        puts pair.reverse.inspect
-        else
-            puts pair.inspect
-    end
-end
+    ## Construct the loop to repeat n-1 times
+      
+    (n-1).times do |_|
 
+        ## Conditional logic to change the location of integers when necessary
+        (n-1).times do |i|
+        if array[i] > array[i+1]
+            array[i], array[i+1] = array[i+1], array[i]
+        end
+        end
+    end  
+
+    ## Output new array in same form in irb
+    
+    puts array.inspect
 end
 
 bubble_sort([4,3,78,2,0,2])
